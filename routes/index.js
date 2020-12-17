@@ -3,26 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  // req.query.secret;
-  actions += [
-    {
-      label: 'Export to pdf',
-      url:
-        "#{ENV['HOST']}/authors/#{@author.id}/posts/?unlisted=false&secret=#{secret}&item_uuid=#{item_uuid}",
-      verb: 'export',
-      context: 'Item',
-      content_types: ['Note'],
-      access_type: 'decrypted',
-    },
-  ];
-  res.json({
-    name: 'Exporter',
-    description: 'Export current note',
-    supported_types: ['Note'],
-    actions: actions,
-    content_type: 'Extension',
-    identifier: 'sn-exporter',
-  });
+  res.send('Hello, World!');
 });
 
 module.exports = router;
