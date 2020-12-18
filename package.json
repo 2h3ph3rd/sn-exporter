@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "dist/dist.js",
   "scripts": {
+    "heroku-prebuild": "npm install --dev && npm run build",
     "build": "webpack",
     "dev": "webpack-dev-server --devtool eval --progress --hot --content-base app",
-    "start": "npm run build && node server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.17.1",
