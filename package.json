@@ -5,10 +5,10 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --devtool eval --progress --hot --content-base app",
-    "start": "npm install --dev && npm run build && node server.js"
+    "start": "node server.js"
   },
   "engines": {
-    "node": "15.x"
+    "node": "15.4.0"
   },
   "dependencies": {
     "express": "^4.17.1",
