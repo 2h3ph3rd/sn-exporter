@@ -4,9 +4,14 @@
   "main": "dist/dist.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --devtool eval --progress --hot --content-base app"
+    "dev": "webpack-dev-server --devtool eval --progress --hot --content-base app",
+    "start": "yarn build && node server.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
+    "path": "^0.12.7"
+  },
   "devDependencies": {
     "babel-core": "6.x",
     "babel-eslint": "7.x",
