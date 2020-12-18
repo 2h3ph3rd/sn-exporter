@@ -1,0 +1,8 @@
+{
+  "identifier": "org.yourdomain.my-extension",
+  "name": "My Extension",
+  "content_type": "SN|Action",
+  "area": "editor-editor",
+  "version": "1.0.0",
+  "url": "http://localhost:8001"
+}
