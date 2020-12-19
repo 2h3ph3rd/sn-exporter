@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/', function(req, res, next) {
   // req.query.secret;
-  actions += [
+  actions = [
     {
       label: 'Export to pdf',
       url:
