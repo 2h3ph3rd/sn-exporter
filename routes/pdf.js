@@ -3,14 +3,15 @@ var router = express.Router();
 
 router.post('/', function(req, res, next) {
   console.log(req.body);
-  // res.json({
-  //   name: 'Exporter',
-  //   description: 'Export current note',
-  //   supported_types: ['Note'],
-  //   actions: actions,
-  //   content_type: 'Extension',
-  //   identifier: 'sn-exporter'
-  // });
+  res.json({
+    item: {
+     uuid: "",
+      content_type: "",
+      content: "",
+      created_at: "",
+      updated_at: ""
+    }
+  });
 });
 
 module.exports = router;
