@@ -1,17 +1,17 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
 
-router.post('/', function(req, res, next) {
-  console.log(req.body);
+router.post('/', function (req, res, next) {
+  console.log(req.body)
   res.json({
     item: {
-     uuid: "",
-      content_type: "",
-      content: "",
-      created_at: "",
-      updated_at: ""
-    }
-  });
-});
+      uuid: '',
+      content_type: '',
+      content: '',
+      created_at: '',
+      updated_at: '',
+    },
+  })
+})
 
-module.exports = router;
+module.exports = router
