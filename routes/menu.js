@@ -7,13 +7,12 @@ router.get('/', function(req, res, next) {
   actions = [
     {
       label: 'Export to pdf',
-      url:
-        "#{ENV['HOST']}/authors/#{@author.id}/posts/?unlisted=false&secret=#{secret}&item_uuid=#{item_uuid}",
+      url: 'https://sn-exporter.herokuapp.com/pdf',
       verb: 'export',
-      context: 'Item',
+      context: 'post',
       content_types: ['Note'],
-      access_type: 'decrypted',
-    },
+      access_type: 'decrypted'
+    }
   ];
   res.json({
     name: 'Exporter',
@@ -21,7 +20,7 @@ router.get('/', function(req, res, next) {
     supported_types: ['Note'],
     actions: actions,
     content_type: 'Extension',
-    identifier: 'sn-exporter',
+    identifier: 'sn-exporter'
   });
 });
 
