@@ -3,8 +3,6 @@ var express = require('express')
 var path = require('path')
 var cookieParser = require('cookie-parser')
 var logger = require('morgan')
-var session = require('express-session')
-var parseurl = require('parseurl')
 
 var actionRouter = require('./routes/action')
 var uploadRouter = require('./routes/upload')
@@ -21,20 +19,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(
-  session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
-  })
-)
-app.use(function (req, res, next) {
-  if (!req.session.notes) {
-    req.session.notes = {}
-  }
-
-  next()
-})
 
 app.use('/action', actionRouter)
 app.use('/upload', uploadRouter)
