@@ -3,17 +3,25 @@ var router = express.Router()
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  // req.query.secret;
   actions = [
     {
       label: 'Export to pdf',
       url: 'https://sn-exporter.herokuapp.com/pdf',
-      verb: 'export',
-      context: 'post',
+      verb: 'post',
+      context: 'Item',
+      content_types: ['Note'],
+      access_type: 'decrypted',
+    },
+    {
+      label: 'Open Google',
+      url: 'https://www.google.com',
+      verb: 'show',
+      context: 'Item',
       content_types: ['Note'],
       access_type: 'decrypted',
     },
   ]
+
   res.json({
     name: 'Exporter',
     description: 'Export current note',
