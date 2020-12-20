@@ -1,5 +1,4 @@
 var express = require('express')
-const { reset } = require('nodemon')
 var router = express.Router()
 
 router.get('/', function (req, res, next) {
