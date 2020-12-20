@@ -6,13 +6,12 @@ router.get('/:file_type/:item_uuid', function (req, res, next) {
   file_type = req.params.file_type
   item_uuid = req.params.item_uuid
 
-  if (store.notes[item_uuid] == null) {
+  data = store.notes.get(item_uuid)
+
+  if (data == null) {
     res.send('Note not found')
     return
   }
-
-  // read note text data
-  data = store.notes[item_uuid].parsedText
 
   switch (file_type) {
     case 'pdf':
