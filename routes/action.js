@@ -21,8 +21,16 @@ router.get('/', function (req, res, next) {
         access_type: 'decrypted',
       },
       {
+        label: 'Export to text file',
+        url: url + '/export/txt/' + item_uuid,
+        verb: 'show',
+        context: 'Item',
+        content_types: ['Note'],
+        access_type: 'decrypted',
+      },
+      {
         label: 'Export to pdf',
-        url: url + '/pdf/' + item_uuid,
+        url: url + '/export/pdf/' + item_uuid,
         verb: 'show',
         context: 'Item',
         content_types: ['Note'],

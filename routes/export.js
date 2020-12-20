@@ -8,7 +8,7 @@ router.get('/:file_type/:item_uuid', function (req, res, next) {
 
   if (store.notes[item_uuid] == null) {
     res.send('Note not found')
-    // exit
+    return
   }
 
   // read note text data
@@ -25,8 +25,7 @@ router.get('/:file_type/:item_uuid', function (req, res, next) {
       break
     default:
       res.send('File type not supported')
-      // exit
-      break
+      return
   }
 
   res.send(text)
