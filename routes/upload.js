@@ -1,9 +1,9 @@
 var express = require('express')
+const { reset } = require('nodemon')
 var router = express.Router()
 
-/* GET home page. */
 router.get('/', function (req, res, next) {
-  res.send('Hello, World!')
+  res.send('Note saved!')
 })
 
 module.exports = router

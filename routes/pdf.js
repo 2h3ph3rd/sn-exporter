@@ -2,16 +2,11 @@ var express = require('express')
 var router = express.Router()
 
 router.post('/', function (req, res, next) {
-  console.log(req.body)
-  res.json({
-    item: {
-      uuid: '',
-      content_type: '',
-      content: '',
-      created_at: '',
-      updated_at: '',
-    },
-  })
+  title = req.body.items[0].content.title
+  text = req.body.items[0].content.text
+
+  doc = '# ' + title + '\n\n' + text
+  res.send()
 })
 
 module.exports = router

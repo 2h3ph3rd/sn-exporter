@@ -4,9 +4,18 @@ var path = require('path')
 var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 
-var indexRouter = require('./routes/index')
-var installRouter = require('./routes/install')
+var actionRouter = require('./routes/action')
+var uploadRouter = require('./routes/upload')
 var pdfRouter = require('./routes/pdf')
+
+// database
+const sqlite3 = require('sqlite3').verbose()
+let db = new sqlite3.Database(':memory:', (err) => {
+  if (err) {
+    return console.error(err.message)
+  }
+  console.log('Connected to the in-memory SQlite database.')
+})
 
 var app = express()
 
@@ -20,8 +29,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/', indexRouter)
-app.use('/install', installRouter)
+app.use('/action', actionRouter)
+app.use('/upload', uploadRouter)
 app.use('/pdf', pdfRouter)
 
 // catch 404 and forward to error handler
