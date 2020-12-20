@@ -1,12 +1,16 @@
 var express = require('express')
 var router = express.Router()
 
-router.post('/', function (req, res, next) {
-  title = req.body.items[0].content.title
-  text = req.body.items[0].content.text
-
-  doc = '# ' + title + '\n\n' + text
-  res.send()
+router.get('/', function (req, res, next) {
+  pdf = 'Note not found'
+  if (
+    req.session != undefined &&
+    req.session.notes[req.query.item_uuid] != undefined
+  ) {
+    // convert pdf
+    pdf = req.session.notes[req.query.item_uuid]
+  }
+  res.send(pdf)
 })
 
 module.exports = router
