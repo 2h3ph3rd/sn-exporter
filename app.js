@@ -8,7 +8,7 @@ var parseurl = require('parseurl')
 
 var actionRouter = require('./routes/action')
 var uploadRouter = require('./routes/upload')
-var pdfRouter = require('./routes/pdf')
+var exportRouter = require('./routes/export')
 
 var app = express()
 
@@ -38,7 +38,7 @@ app.use(function (req, res, next) {
 
 app.use('/action', actionRouter)
 app.use('/upload', uploadRouter)
-app.use('/pdf', pdfRouter)
+app.use('/export', exportRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
