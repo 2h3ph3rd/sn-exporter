@@ -3,6 +3,7 @@ var router = express.Router()
 
 router.get('/', function (req, res, next) {
   url = req.protocol + '://' + req.hostname + ':' + req.app.get('port')
+  item_uuid = req.query.item_uuid
   res.json({
     identifier: 'com.herokuapp.sn-exporter',
     name: 'Exporter',
@@ -21,7 +22,7 @@ router.get('/', function (req, res, next) {
       },
       {
         label: 'Export to pdf',
-        url: url + '/pdf',
+        url: url + '/pdf/' + item_uuid,
         verb: 'show',
         context: 'Item',
         content_types: ['Note'],
