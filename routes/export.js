@@ -1,34 +1,40 @@
 var express = require('express')
 var router = express.Router()
 var store = require('../store')
+var utilities = require('../utilities')
 
-router.get('/:file_type/:item_uuid', function (req, res, next) {
-  file_type = req.params.file_type
+router.get('/:export_type/:item_uuid', function (req, res, next) {
+  export_type = req.params.export_type
   item_uuid = req.params.item_uuid
 
-  text = store.notes.get(item_uuid)
+  note = store.notes.get(item_uuid)
 
-  if (text == null) {
+  if (note == null) {
     res.send('Note not found')
     return
   }
 
+  filename = ''
+  filetype = ''
   data = ''
-  switch (file_type) {
+  switch (export_type) {
     case 'pdf':
-      res.attachment('Note.pdf')
-      res.type('pdf')
-      data = text
+      filename = 'note.pdf'
+      filetype = 'pdf'
+      data = utilities.markdown.toPdf(item_uuid, note)
+      break
     case 'txt':
-      res.attachment('Note.txt')
-      res.type('txt')
-      data = text
+      filename = 'note.txt'
+      filetype = 'txt'
+      data = note
       break
     default:
-      res.send('File type not supported')
+      res.send('Export type not supported')
       return
   }
 
+  res.attachment(filename)
+  res.type(filetype)
   res.send(data)
 })
 
