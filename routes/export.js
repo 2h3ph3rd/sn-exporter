@@ -36,6 +36,9 @@ router.get('/:export_type/:item_uuid', function (req, res, next) {
   res.attachment(filename)
   res.type(filetype)
   res.send(data)
+
+  // delete note from server
+  store.notes.delete(item_uuid)
 })
 
 module.exports = router

@@ -52,4 +52,9 @@ module.exports = {
     }
     return false
   },
+  delete(item_uuid) {
+    if (store[item_uuid] != null) {
+      delete store[item_uuid]
+    }
+  },
 }
