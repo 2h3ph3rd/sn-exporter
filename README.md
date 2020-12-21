@@ -1,4 +1,4 @@
-# SN Exporter
+# SN Exporter [In development]
 
 ![Heroku](https://heroku-badge.herokuapp.com/?app=sn-exporter)
 
