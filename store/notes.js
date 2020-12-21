@@ -34,17 +34,23 @@ module.exports = {
     title = note.content.title
     text = note.content.text
 
+    markdown = text
+    if (title != '') {
+      markdown = '# ' + title + '\n\n' + text
+    }
+
     store[item_uuid] = {
       title,
       text,
-      parsedText: '# ' + title + '\n\n' + text,
+      markdown,
+      original: note,
     }
   },
   get(item_uuid) {
     if (store[item_uuid] == null) {
       return null
     }
-    return store[item_uuid].parsedText
+    return store[item_uuid].markdown
   },
   present(item_uuid) {
     if (store[item_uuid] != null) {
