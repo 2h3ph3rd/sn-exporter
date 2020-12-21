@@ -5,7 +5,6 @@
  */
 
 var app = require('../app')
-var debug = require('debug')('sn-exporter:server')
 var http = require('http')
 
 /**
@@ -82,7 +81,6 @@ function onError(error) {
 function onListening() {
   var addr = server.address()
   var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port
-  var host = addr.address == '::' ? 'http://localhost' : addr.address
-  debug('Listening on ' + bind)
-  debug('Installation endpoint: ' + host + ':' + addr.port + '/install')
+  console.log('Server started')
+  console.log('Listening on ' + bind)
 }
