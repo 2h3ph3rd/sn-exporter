@@ -10,7 +10,7 @@ router.get('/:export_type/:item_uuid', function (req, res, next) {
   note = store.notes.get(item_uuid)
 
   if (note == null) {
-    res.send('Note not found')
+    res.status(404).send('Note not found')
     return
   }
 
