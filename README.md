@@ -4,4 +4,4 @@
 
 See on [Heroku](http://sn-exporter.herokuapp.com/)
 
-A Standard Notes action to export notes into pdf
+A Standard Notes action to export notes into different file type.
