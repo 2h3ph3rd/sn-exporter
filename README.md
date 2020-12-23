@@ -6,7 +6,7 @@ A Standard Notes action to export notes into different file types.
 
 Actually, only to pdf and txt formats.
 
-Notes are deleted automatically from server after 15 minutes.
+Notes are completely deleted from server after 15 minutes.
 
 ## How to install
 
