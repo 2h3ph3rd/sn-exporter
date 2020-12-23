@@ -4,7 +4,11 @@ var router = express.Router()
 var store = require('../store')
 
 router.get('/', function (req, res, next) {
-  url = req.protocol + '://' + req.hostname + ':' + req.app.get('port')
+  if (req.hostname === 'localhost') {
+    url = 'http://localhost:3000/action'
+  } else {
+    url = 'https://sn-exporter.herokuapp.com/action'
+  }
   item_uuid = req.query.item_uuid
 
   actions = []
