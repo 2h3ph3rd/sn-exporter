@@ -3,8 +3,10 @@ var fs = require('fs')
 
 module.exports = {
   /**
-   * convert a markdown to text to pdf and return pdf as bytes array.
-   * item_uuid is used as tmp name folder
+   * Convert a markdown text to pdf and return it as bytes array.
+   * @param {String} uuid is used as tmp name folder
+   * @param {String} text file content
+   * @return {Bytes[]} pdf file
    */
   toPdf(uuid, text) {
     base_path = './tmp/' + uuid
