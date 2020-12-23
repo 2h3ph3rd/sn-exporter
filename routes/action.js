@@ -34,6 +34,13 @@ router.get('/', function (req, res, next) {
         content_types: ['Note'],
         access_type: 'decrypted',
       },
+      {
+        label: 'Delete note from server',
+        url: url + '/delete/' + item_uuid,
+        verb: 'post',
+        context: 'Item',
+        content_types: ['Note'],
+      },
     ]
   } else {
     actions = [
