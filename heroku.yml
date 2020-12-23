@@ -1,7 +1,6 @@
-setup:
-  config:
-    NODE_ENV: production
-    PORT: 80
 build:
   docker:
     web: Dockerfile
+  config:
+    NODE_ENV: production
+    PORT: 443

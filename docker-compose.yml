@@ -6,3 +6,5 @@ services:
       - '3000:3000'
     environment:
       - PORT=3000
+      # look careful here, this docker compose is set for dev env
+      - NODE_ENV=development
