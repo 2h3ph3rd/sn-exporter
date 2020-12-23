@@ -5,9 +5,9 @@ var store = require('../store')
 
 router.get('/', function (req, res, next) {
   if (req.hostname === 'localhost') {
-    url = 'http://localhost:3000/action'
+    base_url = 'http://localhost:3000'
   } else {
-    url = 'https://sn-exporter.herokuapp.com/action'
+    base_url = 'https://sn-exporter.herokuapp.com'
   }
   item_uuid = req.query.item_uuid
 
@@ -17,21 +17,21 @@ router.get('/', function (req, res, next) {
     actions = [
       {
         label: 'Export to text file',
-        url: url + '/export/txt/' + item_uuid,
+        url: base_url + '/export/txt/' + item_uuid,
         verb: 'show',
         context: 'Item',
         content_types: ['Note'],
       },
       {
         label: 'Export to pdf',
-        url: url + '/export/pdf/' + item_uuid,
+        url: base_url + '/export/pdf/' + item_uuid,
         verb: 'show',
         context: 'Item',
         content_types: ['Note'],
       },
       {
         label: 'Update note on server',
-        url: url + '/upload',
+        url: base_url + '/upload',
         verb: 'post',
         context: 'Item',
         content_types: ['Note'],
@@ -39,7 +39,7 @@ router.get('/', function (req, res, next) {
       },
       {
         label: 'Delete note from server',
-        url: url + '/delete/' + item_uuid,
+        url: base_url + '/delete/' + item_uuid,
         verb: 'post',
         context: 'Item',
         content_types: ['Note'],
@@ -49,7 +49,7 @@ router.get('/', function (req, res, next) {
     actions = [
       {
         label: 'Upload note',
-        url: url + '/upload',
+        url: base_url + '/upload',
         verb: 'post',
         context: 'Item',
         content_types: ['Note'],
@@ -61,7 +61,7 @@ router.get('/', function (req, res, next) {
     identifier: 'com.herokuapp.sn-exporter',
     name: 'Exporter',
     content_type: 'Extension',
-    url: url + '/action',
+    url: base_url + '/action',
     description: 'Export notes into different file types',
     supported_types: ['Note'],
     actions: actions,
