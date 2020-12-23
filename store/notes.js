@@ -57,13 +57,14 @@ module.exports = {
     }
   },
   /**
-   * Remove notes from store that are older than 15 minutes
+   * Remove from store notes that are older than 15 minutes
    */
   clean() {
     now = new Date()
 
     for (key in store) {
-      if (utilities.dates.substract(now, store[key].lastUpdate) > 15) {
+      diff = utilities.dates.substract(now, store[key].lastUpdate)
+      if (utilities.dates.millisecondsToMinutes(diff) > 15) {
         this.delete(key)
       }
     }

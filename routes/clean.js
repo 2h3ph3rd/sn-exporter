@@ -5,7 +5,7 @@ var store = require('../store')
 
 router.get('/', function (req, res, next) {
   store.notes.clean()
-  res.send('Cleaned done!')
+  res.send('Old notes removed from store!')
 })
 
 module.exports = router
