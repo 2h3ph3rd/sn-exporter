@@ -2,9 +2,9 @@
 
 Deployed on [Heroku](http://sn-exporter.herokuapp.com/)
 
-A Standard Notes action to export notes into different file type.
+A Standard Notes action to export notes into different file types.
 
-Actually, only to pdf and txt format.
+Actually, only to pdf and txt formats.
 
 Notes are deleted automatically from server after 15 minutes.
 
@@ -26,6 +26,15 @@ This global deps are used through cli commands, so they must be installed separa
 
 ```
 npm i -g md-to-pdf
+```
+
+### Run local
+
+- `yarn run dev` to start dev server
+- App can be installed at this address
+
+```
+https://localhost:3000/action
 ```
 
 ### Changelog
