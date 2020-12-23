@@ -1,7 +1,10 @@
 var CronJob = require('cron').CronJob
 var http = require('http')
 
-function pingRequest() {
+/**
+ * Do a ping request to server to avoid sleep
+ */
+function ping() {
   const options = {
     hostname: 'sn-exporter.herokuapp.com',
     port: 80,
@@ -22,10 +25,4 @@ function pingRequest() {
   req.end()
 }
 
-module.exports = new CronJob(
-  '* */30 * * * *',
-  pingRequest(),
-  null,
-  true,
-  'Europe/Rome'
-)
+module.exports = new CronJob('* */30 * * * *', ping, null, true, 'Europe/Rome')

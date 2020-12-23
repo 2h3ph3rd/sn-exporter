@@ -1,7 +1,10 @@
 var CronJob = require('cron').CronJob
 var http = require('http')
 
-function cleanRequest() {
+/**
+ * Do a clean request to remove old notes from server
+ */
+function clean() {
   const options = {
     hostname: 'sn-exporter.herokuapp.com',
     port: 80,
@@ -22,10 +25,4 @@ function cleanRequest() {
   req.end()
 }
 
-module.exports = new CronJob(
-  '* */15 * * * *',
-  cleanRequest(),
-  null,
-  true,
-  'Europe/Rome'
-)
+module.exports = new CronJob('* */15 * * * *', clean, null, true, 'Europe/Rome')
