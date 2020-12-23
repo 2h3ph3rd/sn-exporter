@@ -58,7 +58,7 @@ router.get('/', function (req, res, next) {
     name: 'Exporter',
     content_type: 'Extension',
     url: url + '/action',
-    description: 'Export notes to different file format',
+    description: 'Export notes into different file types',
     supported_types: ['Note'],
     actions: actions,
   })
