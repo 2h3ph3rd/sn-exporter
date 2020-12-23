@@ -5,7 +5,7 @@ var store = require('../store')
 
 router.post('/', function (req, res, next) {
   store.notes.save(req.body.items[0])
-  res.send('Note saved')
+  res.send({ message: 'Note saved' })
 })
 
 module.exports = router

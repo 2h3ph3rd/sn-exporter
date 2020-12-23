@@ -1,6 +1,8 @@
 var express = require('express')
 var router = express.Router()
 
+var { StatusCodes } = require('http-status-codes')
+
 var store = require('../store')
 var utilities = require('../utilities')
 
@@ -11,7 +13,7 @@ router.get('/:export_type/:item_uuid', function (req, res, next) {
   note = store.notes.get(item_uuid)
 
   if (note == null) {
-    res.status(404).send('Note not found')
+    res.status(StatusCodes.NOT_FOUND).send({ error: 'Note not found' })
     return
   }
 
@@ -30,7 +32,9 @@ router.get('/:export_type/:item_uuid', function (req, res, next) {
       data = note
       break
     default:
-      res.send('Export type not supported')
+      res
+        .status(StatusCodes.UNPROCESSABLE_ENTITY)
+        .send({ error: 'Export type not supported' })
       return
   }
 

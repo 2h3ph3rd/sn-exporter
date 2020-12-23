@@ -1,18 +1,21 @@
 var express = require('express')
 var router = express.Router()
 
+var { StatusCodes } = require('http-status-codes')
+
 var store = require('../store')
 
 router.post('/:item_uuid', function (req, res, next) {
   item_uuid = req.params.item_uuid
 
   if (!store.notes.present(item_uuid)) {
-    res.status(404).send('Note not found')
+    res.status(StatusCodes.NOT_FOUND).send('Note not found')
     return
   }
 
   store.notes.delete(item_uuid)
-  res.send('Note deleted')
+  console.log('Note deleted')
+  res.send(200)
 })
 
 module.exports = router
