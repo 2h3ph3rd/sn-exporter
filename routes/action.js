@@ -11,25 +11,23 @@ router.get('/', function (req, res, next) {
   if (store.notes.present(item_uuid)) {
     actions = [
       {
-        label: 'Update note',
-        url: url + '/upload',
-        verb: 'post',
-        context: 'Item',
-        content_types: ['Note'],
-        access_type: 'decrypted',
-      },
-      {
         label: 'Export to text file',
         url: url + '/export/txt/' + item_uuid,
         verb: 'show',
         context: 'Item',
         content_types: ['Note'],
-        access_type: 'decrypted',
       },
       {
         label: 'Export to pdf',
         url: url + '/export/pdf/' + item_uuid,
         verb: 'show',
+        context: 'Item',
+        content_types: ['Note'],
+      },
+      {
+        label: 'Update note on server',
+        url: url + '/upload',
+        verb: 'post',
         context: 'Item',
         content_types: ['Note'],
         access_type: 'decrypted',
