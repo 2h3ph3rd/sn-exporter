@@ -22,12 +22,10 @@ function pingRequest() {
   req.end()
 }
 
-var job = new CronJob(
+module.exports = new CronJob(
   '* */30 * * * *',
   pingRequest(),
   null,
   true,
   'Europe/Rome'
 )
-
-job.start()
