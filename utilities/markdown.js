@@ -2,8 +2,12 @@ var { execSync } = require('child_process')
 var fs = require('fs')
 
 module.exports = {
-  toPdf(item_uuid, text) {
-    base_path = './tmp/' + item_uuid
+  /**
+   * convert a markdown to text to pdf and return pdf as bytes array.
+   * item_uuid is used as tmp name folder
+   */
+  toPdf(uuid, text) {
+    base_path = './tmp/' + uuid
     markdown_file_path = base_path + '/note.md'
     pdf_file_path = base_path + '/note.pdf'
 
