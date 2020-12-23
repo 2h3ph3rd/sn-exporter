@@ -10,7 +10,7 @@ var app = express()
 
 var jobs = require('./jobs')
 
-if (process.env.NODE_ENV == 'production') {
+if (process.env.NODE_ENV === 'production') {
   jobs.start()
 }
 
