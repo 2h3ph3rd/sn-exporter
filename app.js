@@ -7,6 +7,7 @@ var logger = require('morgan')
 var actionRouter = require('./routes/action')
 var uploadRouter = require('./routes/upload')
 var exportRouter = require('./routes/export')
+var deleteRouter = require('./routes/delete')
 
 var app = express()
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/action', actionRouter)
 app.use('/upload', uploadRouter)
 app.use('/export', exportRouter)
+app.use('/delete', deleteRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
