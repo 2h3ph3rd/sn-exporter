@@ -4,16 +4,18 @@ var path = require('path')
 var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 
+var app = express()
+
 // jobs
+
 var jobs = require('./jobs')
 
 if (process.env.NODE_ENV == 'production') {
   jobs.start()
 }
 
-var app = express()
-
 // view engine setup
+
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 
@@ -27,19 +29,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // routes
 
-var actionRouter = require('./routes/action')
-var uploadRouter = require('./routes/upload')
-var exportRouter = require('./routes/export')
-var deleteRouter = require('./routes/delete')
-var pingRouter = require('./routes/ping')
-var cleanRouter = require('./routes/clean')
+var routes = require('./routes')
 
-app.use('/action', actionRouter)
-app.use('/upload', uploadRouter)
-app.use('/export', exportRouter)
-app.use('/delete', deleteRouter)
-app.use('/ping', pingRouter)
-app.use('/clean', cleanRouter)
+app.use('/', routes)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
