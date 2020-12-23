@@ -18,3 +18,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Action to export a note to txt file
 - Action to update a note uploaded before
 - Action to delete a note from server
+- Job to clean notes older than 15 minutes
