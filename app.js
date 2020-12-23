@@ -4,6 +4,8 @@ var path = require('path')
 var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 
+require('./jobs')
+
 var actionRouter = require('./routes/action')
 var uploadRouter = require('./routes/upload')
 var exportRouter = require('./routes/export')
