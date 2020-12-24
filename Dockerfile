@@ -2,6 +2,7 @@ FROM node:15.4.0
 
 ENV DEBIAN_FRONTEND noninteractive
 
+# installing chrome for md-to-pdf
 RUN  apt-get update \
      && apt-get install -y wget gnupg ca-certificates \
      && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
