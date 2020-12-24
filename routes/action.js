@@ -59,7 +59,7 @@ router.get('/', function (req, res, next) {
   }
   res.json({
     identifier: 'com.herokuapp.sn-exporter',
-    name: 'Exporter',
+    name: req.hostname === 'localhost' ? 'Exporter (localhost)' : 'Exporter',
     content_type: 'Extension',
     url: base_url + '/action',
     description: 'Export notes into different file types',
