@@ -20,7 +20,8 @@ module.exports = {
     fs.writeFileSync(markdown_file_path, text)
 
     // convert file to pdf
-    execSync('md-to-pdf ' + markdown_file_path)
+    command = 'md-to-pdf --launch-options \'{ "args": ["--no-sandbox"] }\' '
+    execSync(command + markdown_file_path)
 
     // read file converted
     pdf = fs.readFileSync(pdf_file_path)
