@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // middleware
 
-app.use(process.env.NODE_ENV === 'production' ? logger('dev') : logger('tiny'))
+app.use(process.env.NODE_ENV === 'production' ? logger('tiny') : logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
