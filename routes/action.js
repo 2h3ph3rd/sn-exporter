@@ -17,14 +17,14 @@ router.get('/', function (req, res, next) {
     actions = [
       {
         label: 'Export to text file',
-        url: base_url + '/export/txt/' + item_uuid,
+        url: base_url + '/export?to=txt&item_uuid=' + item_uuid,
         verb: 'show',
         context: 'Item',
         content_types: ['Note'],
       },
       {
         label: 'Export to pdf',
-        url: base_url + '/export/pdf/' + item_uuid,
+        url: base_url + '/export?to=pdf&item_uuid=' + item_uuid,
         verb: 'show',
         context: 'Item',
         content_types: ['Note'],
@@ -39,7 +39,7 @@ router.get('/', function (req, res, next) {
       },
       {
         label: 'Delete note from server',
-        url: base_url + '/delete/' + item_uuid,
+        url: base_url + '/delete?item_uuid=' + item_uuid,
         verb: 'post',
         context: 'Item',
         content_types: ['Note'],

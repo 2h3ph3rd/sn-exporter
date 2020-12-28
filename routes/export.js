@@ -6,9 +6,9 @@ var { StatusCodes } = require('http-status-codes')
 var store = require('../store')
 var utilities = require('../utilities')
 
-router.get('/:export_type/:item_uuid', function (req, res, next) {
-  export_type = req.params.export_type
-  item_uuid = req.params.item_uuid
+router.get('/', function (req, res, next) {
+  export_type = req.query.to
+  item_uuid = req.query.item_uuid
 
   note = store.notes.get(item_uuid)
 

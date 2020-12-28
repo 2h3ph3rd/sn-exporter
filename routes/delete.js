@@ -5,8 +5,8 @@ var { StatusCodes } = require('http-status-codes')
 
 var store = require('../store')
 
-router.post('/:item_uuid', function (req, res, next) {
-  item_uuid = req.params.item_uuid
+router.post('/', function (req, res, next) {
+  item_uuid = req.query.item_uuid
 
   if (!store.notes.present(item_uuid)) {
     res.status(StatusCodes.NOT_FOUND).send('Note not found')
